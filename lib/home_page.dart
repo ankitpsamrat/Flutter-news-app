@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_new, avoid_print, sized_box_for_whitespace, avoid_unnecessary_containers
 
 import 'dart:convert';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:news_app/data.dart';
@@ -161,80 +160,6 @@ class _HomeState extends State<Home> {
                     ),
                   );
                 },
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 15),
-              child: CarouselSlider(
-                options: CarouselOptions(
-                  height: 200,
-                  autoPlay: true,
-                  enlargeCenterPage: true,
-                ),
-                items: newsModelListCarousel.map(
-                  (instance) {
-                    return Builder(
-                      builder: (BuildContext context) {
-                        return Container(
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Stack(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Image.network(
-                                    instance.newsImg,
-                                    fit: BoxFit.fitHeight,
-                                    width: double.infinity,
-                                  ),
-                                ),
-                                Positioned(
-                                  left: 0,
-                                  right: 0,
-                                  bottom: 0,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Colors.black12.withOpacity(0),
-                                          Colors.black
-                                        ],
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                      ),
-                                    ),
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 5,
-                                        vertical: 10,
-                                      ),
-                                      child: Container(
-                                        margin: const EdgeInsets.symmetric(
-                                          horizontal: 10,
-                                        ),
-                                        child: Text(
-                                          instance.newsHead,
-                                          style: const TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    );
-                  },
-                ).toList(),
               ),
             ),
             Container(
